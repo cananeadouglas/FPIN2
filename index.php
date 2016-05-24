@@ -20,7 +20,7 @@
 			<center>
 			<h1>Entrar no sistema</h1>
 
-			<form method="get" action="autentica.php">
+			<form method="post" action="autentica.php">
 
 			<input required="required" type="text" name="usuario" placeholder="login"><br/>
 			<input required="required" type="password" name="pass" placeholder="senha"><br/>

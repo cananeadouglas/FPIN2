@@ -42,12 +42,12 @@ $curso = $_POST['curso'];
 $tipo = 'Coordenador de Evento';
 
 
-$query1 = mysql_num_rows(mysql_query("select * from cadastro1 where usuario = '$usuario';"));
+$query1 = mysqli_num_rows(mysqli_query($conexao,"select * from cadastro1 where usuario = '$usuario';"));
 if ($query1 == 1){
 	echo "<script>alert('Usuário Existente'); history.back();</script>";
 }else{
-	mysql_query("INSERT INTO cadastro1 (nome, idade, usuario, email, senha, sexo, curso, tipo)
-            VALUES ('$nome','$idade','$usuario','$email','$pass','$sexo','$curso','$tipo');") or die(mysql_error());
+	mysqli_query($conexao,"INSERT INTO cadastro1 (nome, idade, usuario, email, senha, sexo, curso, tipo)
+            VALUES ('$nome','$idade','$usuario','$email','$pass','$sexo','$curso','$tipo');") or die(mysqli_error());
 	echo "<script>alert('Cadastrado com Sucesso, click em OK e aguarde...');</script>";
 
 }

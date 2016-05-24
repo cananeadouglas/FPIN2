@@ -30,7 +30,7 @@
 
 <!-- ----------------------------------------------------------------------------------------  -->
 
-<form action="" method="" ecntype="" id="usrform">
+<form action="post" method="" ecntype="" id="usrform">
 
 
         <input  nome="nome" placeholder="Digite seu nome" required="required" type="text">

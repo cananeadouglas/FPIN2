@@ -3,9 +3,7 @@ include ('conecta_banco.php');
 ?>
 
 <?php
-
 include('start.php');
-
 ?>
 
 <!DOCTYPE html>
@@ -28,8 +26,8 @@ include('start.php');
 
 		<header>
 			<?php
-                		echo '<h3>Seja bem vindo Senhor(a) Coordenador de Eventos ' . htmlspecialchars($_SESSION["usuario"]) . '!</h>';
-           			?>
+            echo '<h3>Seja bem vindo Senhor(a) Coordenador de Eventos ' . htmlspecialchars($_SESSION["usuario"]) . '!</h>';
+           	?>
 			<nav>
 				<ul>
 					<li><a href="#">evento</a></li>

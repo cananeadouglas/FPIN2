@@ -29,7 +29,7 @@
 
 <!-- ----------------------------------------------------------------------------------------  -->
 
-<form action="" method="" ecntype="">
+<form action="#" method="post" ecntype="">
 
 		Inscrição Evento<br/>
 

@@ -55,7 +55,7 @@ ddd
 			<?php
 
 
-			$to = "mixcopia@hotmail.com";
+			$to = "fpin@hotmail.com";
 			$subject = "$assunto";
 			$message = "<strong> Nome: </strong> $seunome <br/> <strong> Email: </strong>  $email <br/> <strong> Assunto: </strong> $assunto <strong> Mensagem: </strong> $mensagem <br/> " ;
 

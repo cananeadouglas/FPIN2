@@ -18,8 +18,8 @@
 
 		<header>
 			<?php
-                		echo '<h3>Cadastro de Coordenador de Evento</h3>';
-           			?>
+            echo '<h3>Cadastro de Coordenador de Evento</h3>';
+           	?>
 
 		</header>
 		<div id="content">

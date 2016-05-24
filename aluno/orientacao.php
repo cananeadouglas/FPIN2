@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Orientação ao Aluno</title>
 	<META http-equiv="Content-Type" content="text/html, charset=UTF-8"/ >
 	<link rel="stylesheet" type="text/css" href="../css/css.css"/>
 	<link rel="shortcut icon" href="../img/favicon.ico">

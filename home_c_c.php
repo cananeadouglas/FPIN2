@@ -4,7 +4,6 @@ include ('conecta_banco.php');
 
 <?php
 include ('start.php');
-
 ?>
 
 <!DOCTYPE html>

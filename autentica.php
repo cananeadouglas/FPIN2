@@ -59,16 +59,16 @@ include ('conecta_banco.php');
 		<div id="content">
 			<article>
 
-                                <?php
-			$usuario = $_GET['usuario'];
-			$pass = $_GET['pass'];
+            <?php
+			$usuario = $_POST['usuario'];
+			$pass = $_POST['pass'];
 
-			$sql = mysql_query("select * from cadastro1 where usuario = '$usuario' and senha = '$pass';") or die(mysql_error());
-			$row = mysql_num_rows($sql);
+			$sql = mysqli_query($conexao,"select * from cadastro1 where usuario = '$usuario' and senha = '$pass';") or die(mysqli_error());
+			$row = mysqli_num_rows($sql);
 			if($row > 0){
 				session_start();
-				$_SESSION['usuario'] = $_GET['usuario'];
-				$_SESSION['senha'] = $_GET['pass'];
+				$_SESSION['usuario'] = $_POST['usuario'];
+				$_SESSION['senha'] = $_POST['pass'];
 				echo "Você foi autenticado com sucesso";
 
 				$type0 = "Adm";
@@ -76,27 +76,27 @@ include ('conecta_banco.php');
 				$type2 = "Coordenador de Curso";
 				$type3 = "Coordenador de Evento";
 
-$query1 = mysql_num_rows(mysql_query("select * from cadastro1 where usuario = '$usuario' and tipo = '$type1'"));
+$query1 = mysqli_num_rows(mysqli_query($conexao,"select * from cadastro1 where usuario = '$usuario' and tipo = '$type1'"));
 if ($query1 == 1)
 {
 	echo "<script>loginsucessoA()</script>";
 }
 else{
-	$query2 = mysql_num_rows(mysql_query("select * from cadastro1 where usuario = '$usuario' and tipo = '$type2'"));
+	$query2 = mysqli_num_rows(mysqli_query($conexao,"select * from cadastro1 where usuario = '$usuario' and tipo = '$type2'"));
 	if($query2 == 1)
 	{
 	echo "<script>loginsucessoC()</script>";
 	}
 	else
 	{
-		$query3 = mysql_num_rows(mysql_query("select * from cadastro1 where usuario = '$usuario' and tipo = '$type3'"));
+		$query3 = mysqli_num_rows(mysqli_query($conexao,"select * from cadastro1 where usuario = '$usuario' and tipo = '$type3'"));
 		if($query3 == 1)
 		{
 			echo "<script>loginsucessoE()</script>";
 		}
 		else
 		{
-			$query4 = mysql_num_rows(mysql_query("select * from cadastro1 where usuario = '$usuario' and tipo = '$type0'"));
+			$query4 = mysqli_num_rows(mysqli_query($conexao,"select * from cadastro1 where usuario = '$usuario' and tipo = '$type0'"));
 			if($query4 == 1)
 			{
 			echo "<script>loginsucessoAA()</script>";

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Anexo Comprovante</title>
+	<title>Anexo de Comprovante</title>
 	<META http-equiv="Content-Type" content="text/html, charset=UTF-8"/ >
 	<link rel="stylesheet" type="text/css" href="../css/css.css"/>
 	<link rel="shortcut icon" href="../img/favicon.ico">
@@ -30,7 +30,7 @@
 
 <!-- ----------------------------------------------------------------------------------------  -->
 
-<form action="" method="" ecntype="">
+<form action="#" method="post" ecntype="">
 
 <br/>
 

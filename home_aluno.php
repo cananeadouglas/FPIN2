@@ -3,9 +3,7 @@ include ('conecta_banco.php');
 ?>
 
 <?php
-
 include('start.php');
-
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +26,7 @@ include('start.php');
 
 		<header>
             <?php
-                echo '<h3>Seja bem vindo Aluno ' . htmlspecialchars($_SESSION["usuario"]) . '!</h3>';
+            echo '<h3>Seja bem vindo Aluno ' . htmlspecialchars($_SESSION["usuario"]) . '!</h3>';
             ?>
 
 			<nav>
@@ -36,10 +34,10 @@ include('start.php');
 					<li><a href="aluno/orientacao.php">Orientação ao Aluno</a></li>
 					<li><a href="aluno/inscreve_evento.php">Inscrever-se em Evento</a></li>
 					<li><a href="aluno/registro_ativ.php">Registrar Atividades Feitas</a></li>
-                                                                    <li><a href="aluno/anexo_cmprove.php">Anexar Comprovantes</a></li>
-                                                                <li><a href="#">Relatório de Atividades Complementares</a></li>
-                                                                <li><a href="#">Declaração de participação</a></li>
-                                                                    <li><a href="logout.php">Sair do Sistema</a></li>
+                    <li><a href="aluno/anexo_cmprove.php">Anexar Comprovantes</a></li>
+                    <li><a href="#">Relatório de Atividades Complementares</a></li>
+                    <li><a href="#">Declaração de participação</a></li>
+                    <li><a href="logout.php">Sair do Sistema</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -84,8 +82,6 @@ include('start.php');
     </tbody>
 
 </table>
-
-
 
 			<?php
 

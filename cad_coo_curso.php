@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Cadastro Coordenador de Curso</title>
 	<META http-equiv="Content-Type" content="text/html, charset=UTF-8"/ >
 	<link rel="stylesheet" type="text/css" href="css/css.css"/>
 	<link rel="shortcut icon" href="img/favicon.ico">
@@ -18,8 +18,8 @@
 
 		<header>
 			<?php
-                		echo '<h3>Cadastro de Coordenador de Curso</h3>';
-           			?>
+            echo '<h3>Cadastro de Coordenador de Curso</h3>';
+           	?>
 
 		</header>
 		<div id="content">

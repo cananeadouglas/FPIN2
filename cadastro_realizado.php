@@ -32,22 +32,23 @@ include ('conecta_banco.php');
 <?php
 
 $nome = $_POST['nome'];
-$idade = $_POST'idade'];
+$idade = $_POST['idade'];
 $usuario = $_POST['usuario'];
 $email = $_POST['email'];
-$pass = $_POST'senha'];
+$pass = $_POST['pass'];
 $sexo = $_POST['sexo'];
 $curso = $_POST['curso'];
 $tipo = "Aluno";
 
 
-$query1 = mysql_num_rows(mysql_query("select * from cadastro1 where usuario = '$usuario';"));
+$query1 = mysqli_num_rows(mysqli_query($conexao,"select * from cadastro1 where usuario = '$usuario';"));
 if ($query1 == 1){
 	echo "<script>alert('Usuário Existente'); history.back();</script>";
 }else{
-	mysql_query("INSERT INTO cadastro1 (nome, idade, usuario, email, senha, sexo, curso, tipo) VALUES ('$nome','$idade','$usuario','$email','$senha','$sexo','$curso','$tipo');") or die(mysql_error());
-	echo "<script>alert('Usuário Cadastrado com Sucesso:<br/>Seu Usuário é $usuario');</script>";
+	mysqli_query($conexao,"INSERT INTO cadastro1 (nome, idade, usuario, email, senha, sexo, curso, tipo) VALUES ('$nome','$idade','$usuario','$email','$pass','$sexo','$curso','$tipo');") or die(mysqli_error());
+	
 	header('location: home_aluno.php');
+	echo "<script>alert('Cadastrado Realizado click em OK e aguarde...');</script>";
 }
 
 ?>

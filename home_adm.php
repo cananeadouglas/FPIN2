@@ -3,9 +3,7 @@ include ('conecta_banco.php');
 ?>
 
 <?php
-
 include ('start.php');
-
 ?>
 
 <!DOCTYPE html>
@@ -29,8 +27,8 @@ include ('start.php');
 
 		<header>
 			<?php
-                		echo '<h3>Seja bem vindo ' . htmlspecialchars($_SESSION["usuario"]) . '!</h>';
-           			?>
+            echo '<h3>Seja bem vindo ' . htmlspecialchars($_SESSION["usuario"]) . '!</h>';
+           	?>
 			<nav>
 				<ul>
 					<li><a href="cad_coo_curso.php">Cadastro de Coordenador de Curso</a></li>

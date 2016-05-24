@@ -20,7 +20,7 @@
 		</header>
 		<div id="content">
 
-<form method="get" action="cadastro_realizado.php" enctype="multipart/form-data">
+<form method="post" action="cadastro_realizado.php" enctype="multipart/form-data">
 
     <input type="text" name="nome" placeholder="Nome Completo" required="requerid" /><br/>
     <input type="number" name="idade" placeholder="Idade" required="requerid" min="8" max="105" /><br/>
