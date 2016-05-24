@@ -39,14 +39,7 @@
         <input name="sexo" required="required" value="femi" id="sexo2" type="radio">Feminino</label>
         </p>
 
-        <p>Selecione o Curso do Coordenador:<br/>
-        <select required="required" name="curso">
-            <option selected="selected" value="">Selecione</option>
-            <option value="Engenharia Civil">Engenharia Civil</option>
-            <option value="Matemática">Matemática</option>
-            <option value="Sistema de Informação">Sistema de Informação</option>
-
-        </select></p><br/>
+       <br/>
 
     <input class="button button1" type="submit" value="Enviar">
     <input type="reset" value="Limpar">
