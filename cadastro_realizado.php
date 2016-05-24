@@ -46,9 +46,9 @@ if ($query1 == 1){
 	echo "<script>alert('Usuário Existente'); history.back();</script>";
 }else{
 	mysqli_query($conexao,"INSERT INTO cadastro1 (nome, idade, usuario, email, senha, sexo, curso, tipo) VALUES ('$nome','$idade','$usuario','$email','$pass','$sexo','$curso','$tipo');") or die(mysqli_error());
-	
-	header('location: home_aluno.php');
 	echo "<script>alert('Cadastrado Realizado click em OK e aguarde...');</script>";
+	header('location: home_aluno.php');
+	
 }
 
 ?>
