@@ -30,7 +30,7 @@ include('start.php');
            	?>
 			<nav>
 				<ul>
-					<li><a href="#">Criar evento</a></li>
+					<li><a href="criareventos.php">Criar evento</a></li>
 					<li><a href="#">Informar Participação/Ausência</a></li>
 					<li><a href="#">Gerar relatório</a></li>
 					<li><a href="#">Gerar declaração</a></li>
