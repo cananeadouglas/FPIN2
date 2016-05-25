@@ -17,12 +17,16 @@
 	<div id="wrap">
 
 		<header>
-			<?php
+	<?php
             echo '<h3>Cadastro de Coordenador de Curso</h3>';
            	?>
 
+        <a href="home_adm.php">Painel Inicial</a><br/>
+
 		</header>
 		<div id="content">
+
+
 
 		<form method="post" action="cadastro_r_cc.php" enctype="multipart/form-data">
 
@@ -59,9 +63,7 @@
 
 
             <br/>
-	<a href="home_adm.php">
-	<button type="button">Home Administrador</button>
-	</a>
+
 
 		</div>
 		<div id="sidebar">

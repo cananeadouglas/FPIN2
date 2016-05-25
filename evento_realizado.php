@@ -1,14 +1,26 @@
+<META http-equiv="Content-Type" content="text/html, charset=UTF-8"/ >
+
+<?php
+include ('conecta_banco.php');
+?>
+
+<?php
+include ('start.php');
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Evento em cadastro</title>
 	<META http-equiv="Content-Type" content="text/html, charset=UTF-8"/ >
 	<link rel="stylesheet" type="text/css" href="css/css.css"/>
 	<link rel="shortcut icon" href="img/favicon.ico">
 
-	<META name="ifal" content="Site finculado ao Instituto Federal de Alagoas"/>
+	<META name="IFAL" content="Site finculado ao Instituto Federal de Alagoas"/>
 	<META name="keywords" content="Eventos em Maceió"/>
 	<META name="author" content="estudantes SI 3° Período"/>
+	<meta http-equiv="refresh" content=6;url="home_c_e.php">
+
 </head>
 <body>
 	<div id="superior">
@@ -17,39 +29,40 @@
 	<div id="wrap">
 
 		<header>
-			<h3>Seja bem Vindo</h3>
-		<nav>
-
-		</nav>
+			<h3></h3>
 		</header>
-
-		<a href="home_c_e.php">Painel inicial</a><br/>
 		<div id="content">
 			<article>
 
-		<form method="post" action="evento_realizado.php">
+<?php
 
-		<!-- FORMULARIO DE CRIAÇÃO DE EVENTOS -->
+$nomeevento = $_POST['nomeevento'];
+$localevento = $_POST['localevento'];
+$usuario =  "<body>".htmlspecialchars($_SESSION['usuario'])."</body>";
+$diaevento = $_POST['data'];
+$descricao = $_POST['descricao'];
 
-	      <p><input type="text" name="nomeevento" placeholder="Nome do Evento" required="required"></p>
+$sql = mysql_query("SELECT idusuario FROM cadastro1 WHERE usuario = '$usuario' ");
 
-	      <p><input type="text" name="localevento" placeholder="Local" required="required"><p>
+$row = mysql_num_rows($sql);
 
-	      <p>Layout do Evento<input  nome="foto" type="file"></p>
-
-	      <p>Data <input type="date" name="data" id="data" placeholder="Date" required="required"></p>
-
-	       <textarea name="descricao" rows"15" cols"125" placeholder="Descrição" required="required"></textarea>
-
-	       <p><input class="button button1" type="submit" name="enviar" value="enviar">
-	       <input type="reset" name="limpar" value="Limpar"></p>
-		</form>
-
+if($row > 0){
+	while ($linha = mysql_fetch_array($sql)){
+		$idusuario = $linha['idusuario'];
+		echo "".@$idusuario;
+	}
+}else{
+	echo "error";
+}
 
 
-			<?php
+//mysqli_query($conexao,"INSERT INTO eventos (nomeevento, localevento, diaevento, descricao, idusuario)
+//			VALUES ('$nomeevento','$localevento','$diaevento','$descricao','$idusuario')") or die(mysqli_error());
+//	echo "<script>alert('Cadastro Realizado click em OK e aguarde...');</script>";
 
-			?>
+
+?>
+
 			</article>
 		</div>
 		<div id="sidebar">
@@ -78,7 +91,7 @@
 		<br><br><br><br><br><br>
 		<footer>
 
-
+			<a href="#">Fale Conosco</a>
 		</footer>
 	</div>
 </body>

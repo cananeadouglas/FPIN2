@@ -26,7 +26,7 @@ include ('start.php');
 	<div id="wrap">
 
 		<header>
-			<?php
+	<?php
             echo '<h3>Seja bem vindo ' . htmlspecialchars($_SESSION["usuario"]) . '!</h>';
            	?>
 			<nav>
