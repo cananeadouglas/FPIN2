@@ -38,27 +38,21 @@ include ('start.php');
 
 $nomeevento = $_POST['nomeevento'];
 $localevento = $_POST['localevento'];
-$usuario =  "<body>".htmlspecialchars($_SESSION['usuario'])."</body>";
+$usuario =  $_SESSION['usuario'];
 $diaevento = $_POST['data'];
 $descricao = $_POST['descricao'];
 
-$sql = mysql_query("SELECT idusuario FROM cadastro1 WHERE usuario = '$usuario' ");
 
-$row = mysql_num_rows($sql);
+$sql = "SELECT idusuario FROM cadastro1 WHERE usuario = '$usuario' ";
+$result = mysqli_query($conexao, $sql);
+$fetch = mysqli_fetch_assoc($result);
+$fetch = array_shift($fetch);
 
-if($row > 0){
-	while ($linha = mysql_fetch_array($sql)){
-		$idusuario = $linha['idusuario'];
-		echo "".@$idusuario;
-	}
-}else{
-	echo "error";
-}
+$idusuario = $fetch;
 
-
-//mysqli_query($conexao,"INSERT INTO eventos (nomeevento, localevento, diaevento, descricao, idusuario)
-//			VALUES ('$nomeevento','$localevento','$diaevento','$descricao','$idusuario')") or die(mysqli_error());
-//	echo "<script>alert('Cadastro Realizado click em OK e aguarde...');</script>";
+mysqli_query($conexao,"INSERT INTO eventos (nomeevento, localevento, diaevento, descricao, idusuario)
+			VALUES ('$nomeevento','$localevento','$diaevento','$descricao','$idusuario')") or die(mysqli_error());
+	echo "<script>alert('Cadastro de Evento Realizado click em OK e aguarde...');</script>";
 
 
 ?>
