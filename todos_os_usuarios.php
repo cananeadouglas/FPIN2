@@ -9,8 +9,8 @@ include ('start.php');
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Página do Administrador</title>
-	<META charset="UTF-8"/ >
+	<title>Lista de Usuários Cadastrados</title>
+	<META http-equiv="Content-Type" content="text/html, charset=UTF-8"/ >
 	<link rel="stylesheet" type="text/css" href="css/css.css"/>
 	<link rel="shortcut icon" href="img/favicon.ico">
 
@@ -18,7 +18,6 @@ include ('start.php');
 	<META name="keywords" content="Eventos em Maceió"/>
 	<META name="author" content="estudantes SI 3° Período"/>
 </head>
-
 <body>
 	<div id="superior">
 		<center><img src="img/ifal.png"; ></center>
@@ -27,28 +26,53 @@ include ('start.php');
 
 		<header>
 	<?php
-            echo '<h3>Seja bem vindo ' . htmlspecialchars($_SESSION["usuario"]) . '!</h>';
+            	echo "<h3>Lista de Usuários Cadastrados</h3><br/>";
            	?>
+           	<a href="home_adm.php">Painel Inicial</a><br/>
+
+
 			<nav>
-				<ul>
-				<li><a href="cad_coo_curso.php">Cadastro de Coordenador de Curso</a></li>
-				<li><a href="cad_coo_evento.php">Cadastro de Coordenador de Evento</a></li>
-                                                        <li><a href="todos_os_usuarios.php">Listar usuários do Sistema</a></li>
-				<li><a href="logout.php">Sair do Sistema</a></li>
-				</ul>
+
 			</nav>
 		</header>
 		<div id="content">
 			<article>
-			<?php
+<?php
 
-			?>
+$sql = "SELECT nome, usuario, tipo  FROM cadastro1";
+
+$resultado = mysqli_query($conexao, $sql);
+
+echo "<table>";
+echo "<tr>";
+echo "<th>Nome</th>";
+echo "<th>Usuario</th>";
+echo "<th>Tipo</th>";
+echo "</tr><tr>";
+
+while($linha = mysqli_fetch_array($resultado)){
+
+echo "<td>{$linha['nome']}</td>";
+echo "<td>{$linha['usuario']}</td>";
+echo "<td>{$linha['tipo']}</td></tr>";
+
+/*	$nome = $linha['nome'];
+	$usuario = $linha['usuario'];
+	$tipo = $linha['tipo'];
+	echo "<strong>Nome: </strong> $nome <br/>";
+	echo "<strong>Usuário: </strong> $usuario <br/>";
+	echo "<strong>Tipo: </strong> $tipo <br/><br/>";*/
+}
+
+echo "</tr>";
+echo "</table>";
+
+ ?>
 			</article>
 		</div>
 		<div id="sidebar">
 			<aside>
 				<ul>
-
 				<center>Eventos
 				<a href="http://cssday.io" target="_blank">
 				 <img src="http://www.divyweb.com/site/uploads/2015/12/cssdayio-logo-620x269.png"
@@ -72,7 +96,7 @@ include ('start.php');
 		<br><br><br><br><br><br>
 		<footer>
 
-
+			<a href="#">Fale Conosco</a>
 		</footer>
 	</div>
 </body>
