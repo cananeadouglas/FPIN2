@@ -19,7 +19,7 @@ include ('start.php');
 	<META name="IFAL" content="Site finculado ao Instituto Federal de Alagoas"/>
 	<META name="keywords" content="Eventos em Maceió"/>
 	<META name="author" content="estudantes SI 3° Período"/>
-	<meta http-equiv="refresh" content=2;url="home_c_e.php">
+	<meta http-equiv="refresh" content=1;url="home_c_e.php">
 
 </head>
 <body>

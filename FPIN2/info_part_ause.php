@@ -69,14 +69,14 @@ if($row > 0){
 	echo "<table><tr>";
 	echo "<th>Nome de usuario</th>";
 	echo "<th>Nome do Evento</th>";
-	echo "<th>Falta Confirmar</th>";
+	echo "<th>Falta C.E. Confirmar </th>";
 	echo "</tr><tr>";
 
 	while($linha = mysqli_fetch_array($resultado)){
 
 	echo "<td>{$linha['usuario']}</td>";
 	echo "<td>{$linha['nomeevento']}</td>";
-	echo "<td>{$linha['participou']} <a href='validacaonocurso.php'>Validar</a></td></tr>";
+	echo "<td>{$linha['participou']} <form action='validacaonocurso.php' method='post'><input type='submit' value='Validar'></td></tr>";
 
 	}
 
