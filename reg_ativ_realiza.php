@@ -1,3 +1,5 @@
+<META http-equiv="Content-Type" content="text/html, charset=UTF-8"/ >
+
 <?php
 include ('conecta_banco.php');
 ?>
@@ -9,47 +11,46 @@ include ('start.php');
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-	<META charset="UTF-8"/ >
+	<title>Evento em cadastro</title>
+	<META http-equiv="Content-Type" content="text/html, charset=UTF-8"/ >
 	<link rel="stylesheet" type="text/css" href="css/css.css"/>
 	<link rel="shortcut icon" href="img/favicon.ico">
 
-	<META name="ifal" content="Site finculado ao Instituto Federal de Alagoas"/>
+	<META name="IFAL" content="Site finculado ao Instituto Federal de Alagoas"/>
 	<META name="keywords" content="Eventos em Maceió"/>
 	<META name="author" content="estudantes SI 3° Período"/>
+	<meta http-equiv="refresh" content=1;url="home_c_c.php">
+
 </head>
 <body>
 	<div id="superior">
-		<center><img src="img/ifal.png"; ></center>
+		<center><img src="img/ifal.png"></center>
 	</div>
 	<div id="wrap">
 
 		<header>
-			<?php
-                		echo '<h3>Seja bem vindo Senhor(a) Coordenador de Curso ' . htmlspecialchars($_SESSION["usuario"]) . '!</h>';
-           			?>
-			<nav>
-				<ul>
-					<li><a href="registrar_atividade.php">Registrar Atividades</a></li>
-					<li><a href="visualizar_atividade.php">Visualizar Atividades</a></li>
-					<li><a href="info_part_ause2.php">Validar Atividades</a></li>
-					<li><a href="#">Gerar Relatório</a></li>
-					<li><a href="#">Gerar Declaração</a></li>
-					<li><a href="logout.php">Sair do Sistema</a></li>
-				</ul>
-			</nav>
+			<h3></h3>
 		</header>
 		<div id="content">
 			<article>
-			<?php
 
-			?>
+<?php
+
+$atividade = $_POST['atividade'];
+$cargahoraria = $_POST['cargahoraria'];
+
+$usuario =  $_SESSION['usuario'];
+
+mysqli_query($conexao,"INSERT INTO atividades (atividade, cargahoraria) VALUES ('$atividade','$cargahoraria') ") or die(mysqli_error());
+	echo "<script>alert('Cadastro de Evento Realizado click em OK e aguarde...');</script>";
+
+?>
+
 			</article>
 		</div>
 		<div id="sidebar">
 			<aside>
 				<ul>
-
 				<center>Eventos
 				<a href="http://cssday.io" target="_blank">
 				 <img src="http://www.divyweb.com/site/uploads/2015/12/cssdayio-logo-620x269.png"
@@ -73,8 +74,7 @@ include ('start.php');
 		<br><br><br><br><br><br>
 		<footer>
 
-<a href="fale.php">Fale Conosco</a>
-
+			<a href="#">Fale Conosco</a>
 		</footer>
 	</div>
 </body>

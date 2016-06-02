@@ -1,3 +1,5 @@
+<META http-equiv="Content-Type" content="text/html, charset=UTF-8"/ >
+
 <?php
 include ('../conecta_banco.php');
 ?>
@@ -9,7 +11,7 @@ include ('../start.php');
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Inscrição em Evento</title>
+	<title>Registro de Atividades</title>
 	<META http-equiv="Content-Type" content="text/html, charset=UTF-8"/ >
 	<link rel="stylesheet" type="text/css" href="../css/css.css"/>
 	<link rel="shortcut icon" href="../img/favicon.ico">
@@ -17,58 +19,68 @@ include ('../start.php');
 	<META name="ifal" content="Site finculado ao Instituto Federal de Alagoas"/>
 	<META name="keywords" content="Eventos em Maceió"/>
 	<META name="author" content="estudantes SI 3° Período"/>
+	<meta http-equiv="refresh" content=1;url="../home_aluno.php">
 </head>
 <body>
 	<div id="superior">
-		<center><img src="../img/ifal.png"></center>
+		<center><img src="../img/ifal.png"; ></center>
 	</div>
 	<div id="wrap">
 
 		<header>
-	<?php
-            echo '<h3>Seja bem vindo ' . htmlspecialchars($_SESSION["usuario"]) . '!</h3>';
-           	?>
-           	<a href="../home_aluno.php">Painel Inicial</a><br/>
-			<nav>
 
-			</nav>
 		</header>
+
 		<div id="content">
 			<article>
 
 <!-- ----------------------------------------------------------------------------------------  -->
 
-<form action="inscreve_evento_realizado.php" method="post" ecntype="">
-
-<p>Deseja se Inscrever em qual curso?</p>
-
 <?php
 
-$sql = "SELECT nomeevento FROM eventos";
+$usuario = $_SESSION['usuario'];
+$atividade = $_POST['atividade'];
 
-$resultado = mysqli_query($conexao, $sql);
+$sql = "SELECT idusuario
+            FROM cadastro1
+            WHERE usuario = '$usuario'";
 
-echo "<p><label>Selecione de eventos:</label><br>";
-echo "<select type='selected' required='required' value='selecione'  name='nomeevento'>";
+$result = mysqli_query($conexao, $sql);
+$fetch = mysqli_fetch_assoc($result);
+$fetch = array_shift($fetch);
+$idusuario = $fetch; // recupero o id do usuario
 
-while($linha = mysqli_fetch_array($resultado)){
 
-echo "<option>{$linha['nomeevento']}</option>";
+$sql2 = "SELECT idatividade
+            FROM atividades
+            WHERE atividade = '$atividade' ";
+
+$result2 = mysqli_query($conexao, $sql2);
+$fetch2 = mysqli_fetch_assoc($result2);
+$fetch2 = array_shift($fetch2);
+
+$idatividade = $fetch2; // recupero o id do usuario
+
+//echo "$idusuario + $idatividade";
+
+$query1 = mysqli_num_rows(mysqli_query($conexao,"SELECT idcontahora
+		FROM contahora
+		WHERE idusuario = '$idusuario' and idatividade = '$idatividade' and participou = '' "));
+if ($query1 >= 1){
+	echo "<script>alert('Escolha outra Atividade, você já esta cadastrado no mesmo. Click em OK');</script>";
+}else{
+
+mysqli_query($conexao,"INSERT INTO contahora (idusuario, idatividade)
+	VALUES ('$idusuario','$idatividade');") or die(mysqli_error());
+	echo "<script>alert('Inscrição Realizada click em OK');</script>";
 
 }
 
-echo " </select></p>";
-
 ?>
-
-      <input class="button button1" type="submit" value="Fazer Inscrição">
-
-
- </form>
 
 <!-- ----------------------------------------------------------------------------------------  php em baixo  -->
 
-			</article>
+		</article>
 		</div>
 		<div id="sidebar">
 			<aside>

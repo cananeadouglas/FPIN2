@@ -1,18 +1,10 @@
-<?php
-include ('../conecta_banco.php');
-?>
-
-<?php
-include ('../start.php');
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Inscrição em Evento</title>
+	<title>Registrando Atividade</title>
 	<META http-equiv="Content-Type" content="text/html, charset=UTF-8"/ >
-	<link rel="stylesheet" type="text/css" href="../css/css.css"/>
-	<link rel="shortcut icon" href="../img/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="css/css.css"/>
+	<link rel="shortcut icon" href="img/favicon.ico">
 
 	<META name="ifal" content="Site finculado ao Instituto Federal de Alagoas"/>
 	<META name="keywords" content="Eventos em Maceió"/>
@@ -20,54 +12,38 @@ include ('../start.php');
 </head>
 <body>
 	<div id="superior">
-		<center><img src="../img/ifal.png"></center>
+		<center><img src="img/ifal.png"></center>
 	</div>
 	<div id="wrap">
 
 		<header>
-	<?php
-            echo '<h3>Seja bem vindo ' . htmlspecialchars($_SESSION["usuario"]) . '!</h3>';
-           	?>
-           	<a href="../home_aluno.php">Painel Inicial</a><br/>
-			<nav>
+			<h3>Seja bem Vindo</h3>
+		<nav>
 
-			</nav>
+		</nav>
 		</header>
+
+		<a href="home_c_c.php">Painel inicial</a><br/>
 		<div id="content">
 			<article>
 
-<!-- ----------------------------------------------------------------------------------------  -->
+<form method="post" action="reg_ativ_realiza.php">
 
-<form action="inscreve_evento_realizado.php" method="post" ecntype="">
+		<!-- FORMULARIO DE Atividades -->
 
-<p>Deseja se Inscrever em qual curso?</p>
+<input type="text" name="atividade" placeholder="Atividade" required="required"><br/>
 
-<?php
+<input type="number" name="cargahoraria" placeholder="Carga Horária Atividade" required="required"><br/>
 
-$sql = "SELECT nomeevento FROM eventos";
+<input class="button button1" type="submit" name="enviar" value="Registrar Atividade">
 
-$resultado = mysqli_query($conexao, $sql);
+<input type="reset" name="limpar" value="Limpar">
 
-echo "<p><label>Selecione de eventos:</label><br>";
-echo "<select type='selected' required='required' value='selecione'  name='nomeevento'>";
+</form>
 
-while($linha = mysqli_fetch_array($resultado)){
+			<?php
 
-echo "<option>{$linha['nomeevento']}</option>";
-
-}
-
-echo " </select></p>";
-
-?>
-
-      <input class="button button1" type="submit" value="Fazer Inscrição">
-
-
- </form>
-
-<!-- ----------------------------------------------------------------------------------------  php em baixo  -->
-
+			?>
 			</article>
 		</div>
 		<div id="sidebar">
@@ -95,6 +71,7 @@ echo " </select></p>";
 		</div>
 		<br><br><br><br><br><br>
 		<footer>
+
 
 		</footer>
 	</div>

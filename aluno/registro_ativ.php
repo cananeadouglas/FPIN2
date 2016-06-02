@@ -1,3 +1,13 @@
+<META http-equiv="Content-Type" content="text/html, charset=UTF-8"/ >
+
+<?php
+include ('../conecta_banco.php');
+?>
+
+<?php
+include ('../start.php');
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,10 +29,7 @@
 		<header>
 			<h3>Seja bem Vindo</h3>
 			<nav>
-				<ul>
-					<li><a href="../home_aluno.php">Painel Inicial</a></li>
-
-				</ul>
+			<a href="../home_aluno.php">Painel Inicial</a>
 			</nav>
 		</header>
 
@@ -31,47 +38,38 @@
 
 <!-- ----------------------------------------------------------------------------------------  -->
 
-<form action="#" method="post" ecntype="">
+<form action="complemento_reg_ativ.php" method="post" ecntype="">
 
-		<p>Horas realizadas na atividade complementar
-			<input placeholder="Digite quantas horas realizadas na atividade"
-	 		required="required" type="text" name="horas"/></p>
+<?php
 
+$sql6 = "SELECT atividade
+                    FROM atividades";// atividade
 
-		<p><label>Selecione a atividade realizada </label> <br>
-      <select name="registro" type="selected">
-            <option>Monitoria em disciplina</option>
-            <option>Estágio Extracurricular</option>
-            <option>Ministrante de oficina ou curso na área do curso em que está matriculado</option>
-            <option>Participação como conferencista, mediador ou debatedor em eventos na área específica de formação, com carga horária igual ou superior a 1 hora</option>
-            <option>Participação em congressos, seminários, simpósios, conferências, oficinas de trabalho e similares, na área específica de formação</option>
-            <option>Bolsas concedidas pelo IFAL (monitoria, estágios extracurriculares, entre outros)</option>
-            <option>Bolsas de iniciação científica (PIBIC, PIBITI) concedidas pelo IFAL ou por agências de fomento (FAPEAL, CNPQ, entre outras)</option>
-            <option>Curso regular de língua estrangeira</option>
-            <option>Cursos direcionados ao uso de Tecnologia de Informação e Comunicação </option>
-            <option>Participação em projetos de extensão cadastrados</option>
-            <option>Premiação em concursos de monografia, promovidos ou não pelo IFAL</option>
-            <option>Apresentação de trabalho em congressos, seminários, simpósios, conferência, oficinas de trabalho e similares, na área específica de formação</option>
-            <option>Desenvolvimento de pesquisa com produto final publicado em períodico, obra coletiva ou autoria de livro (texto integral)</option>
-            <option>Participação em órgãos colegiados do IFAL</option>
-            <option>Organização de Eventos</option>
-            <option>participação em intercâmbio ou convênio cultural</option>
-            <option>Participação em grupos de pesquisa</option>
-            <option>Atividades de tutoria, relacionadas à área específica de informação</option>
+$resultado6 = mysqli_query($conexao, $sql6);
 
-      </select></p>
+echo "<p><label>Declaro que participei da atividades:</label><br>";
+echo "<select type='selected' required='required' value='selecione'  name='atividade'>";
 
-      <br/>
-        <input class="button button1" type="submit" value="Enviar Anexo">
+while($linha6 = mysqli_fetch_array($resultado6)){
 
-            </form>
+echo "<option>{$linha6['atividade']}</option>";
+
+}
+
+echo " </select></p>";
+
+?>
+<p>Aqui esta o comprovante: </p>
+
+<input type="file" name="arquivo"/>
+<br/><br/>
+<input class="button button1" type="submit" value="Enviar">
+
+</form>
 
 <!-- ----------------------------------------------------------------------------------------  php em baixo  -->
 
-			<?php
-
-			?>
-			</article>
+		</article>
 		</div>
 		<div id="sidebar">
 			<aside>

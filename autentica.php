@@ -18,27 +18,27 @@ include ('conecta_banco.php');
 
 		function loginsucessoA(){
 
-			setTimeout("window.location='home_aluno.php' ", 5000);
+			setTimeout("window.location='home_aluno.php' ", 3000);
 		}
 
 		function loginsucessoAA(){
 
-			setTimeout("window.location='home_adm.php' ", 5000);
+			setTimeout("window.location='home_adm.php' ", 3000);
 		}
 
 		function loginsucessoC(){
 
-			setTimeout("window.location='home_c_c.php' ", 5000);
+			setTimeout("window.location='home_c_c.php' ", 3000);
 		}
 
 		function loginsucessoE(){
 
-			setTimeout("window.location='home_c_e.php' ", 5000);
+			setTimeout("window.location='home_c_e.php' ", 3000);
 		}
 
 
 		function loginfalhou(){
-			setTimeout("window.location='index.php' ", 5000);
+			setTimeout("window.location='index.php' ", 3000);
 		}
 
 
@@ -49,7 +49,7 @@ include ('conecta_banco.php');
 </head>
 <body>
 	<div id="superior">
-		<center><img src="img/ifal.png"; ></center>
+		<center><img src="img/ifal.png"></center>
 	</div>
 	<div id="wrap">
 

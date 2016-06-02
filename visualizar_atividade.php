@@ -1,18 +1,18 @@
 <?php
-include ('../conecta_banco.php');
+include ('conecta_banco.php');
 ?>
 
 <?php
-include ('../start.php');
+include ('start.php');
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Inscrição em Evento</title>
+	<title>Atividades</title>
 	<META http-equiv="Content-Type" content="text/html, charset=UTF-8"/ >
-	<link rel="stylesheet" type="text/css" href="../css/css.css"/>
-	<link rel="shortcut icon" href="../img/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="css/css.css"/>
+	<link rel="shortcut icon" href="img/favicon.ico">
 
 	<META name="ifal" content="Site finculado ao Instituto Federal de Alagoas"/>
 	<META name="keywords" content="Eventos em Maceió"/>
@@ -20,55 +20,52 @@ include ('../start.php');
 </head>
 <body>
 	<div id="superior">
-		<center><img src="../img/ifal.png"></center>
+		<center><img src="img/ifal.png"></center>
 	</div>
 	<div id="wrap">
 
 		<header>
-	<?php
-            echo '<h3>Seja bem vindo ' . htmlspecialchars($_SESSION["usuario"]) . '!</h3>';
-           	?>
-           	<a href="../home_aluno.php">Painel Inicial</a><br/>
-			<nav>
+			<h3>Seja bem Vindo</h3>
+		<nav>
 
-			</nav>
+		</nav>
 		</header>
+
+		<a href="home_c_c.php">Painel inicial</a><br/>
 		<div id="content">
-			<article>
-
-<!-- ----------------------------------------------------------------------------------------  -->
-
-<form action="inscreve_evento_realizado.php" method="post" ecntype="">
-
-<p>Deseja se Inscrever em qual curso?</p>
-
+		<article>
 <?php
 
-$sql = "SELECT nomeevento FROM eventos";
+$sql = "SELECT atividade, cargahoraria FROM atividades ";
 
 $resultado = mysqli_query($conexao, $sql);
 
-echo "<p><label>Selecione de eventos:</label><br>";
-echo "<select type='selected' required='required' value='selecione'  name='nomeevento'>";
+$sql2 = mysqli_query($conexao, "SELECT atividade, cargahoraria
+					FROM atividades") or die(mysqli_error());
+$row = mysqli_num_rows($sql2);
 
-while($linha = mysqli_fetch_array($resultado)){
+if($row > 0){
 
-echo "<option>{$linha['nomeevento']}</option>";
+	echo "<table><tr>";
+	echo "<th>Atividade</th>";
+	echo "<th>Carga Horária</th>";
+	echo "</tr><tr>";
 
+	while($linha = mysqli_fetch_array($resultado)){
+
+	echo "<td>{$linha['atividade']}</td>";
+	echo "<td>{$linha['cargahoraria']}</td></tr>";
+
+	}
+
+	echo "</table><br/>";
+
+}else{
+	echo "nenhuma atividade";
 }
 
-echo " </select></p>";
-
 ?>
-
-      <input class="button button1" type="submit" value="Fazer Inscrição">
-
-
- </form>
-
-<!-- ----------------------------------------------------------------------------------------  php em baixo  -->
-
-			</article>
+		</article>
 		</div>
 		<div id="sidebar">
 			<aside>
@@ -78,7 +75,6 @@ echo " </select></p>";
 				 <img src="http://www.divyweb.com/site/uploads/2015/12/cssdayio-logo-620x269.png"
 				width="130" align="_center" title="click para saber mais">
 				</a>
-
 
 				<a href="http://javaman.io" target="_blank">
 				<img src="http://harrisgray.files.wordpress.com/2013/09/java-man-tour-banner1.png"
@@ -95,6 +91,7 @@ echo " </select></p>";
 		</div>
 		<br><br><br><br><br><br>
 		<footer>
+
 
 		</footer>
 	</div>

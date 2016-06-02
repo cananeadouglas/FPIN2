@@ -21,7 +21,7 @@ include ('start.php');
 
 <body>
 	<div id="superior">
-		<center><img src="img/ifal.png"; ></center>
+		<center><img src="img/ifal.png";></center>
 	</div>
 	<div id="wrap">
 
@@ -33,7 +33,8 @@ include ('start.php');
 				<ul>
 				<li><a href="cad_coo_curso.php">Cadastro de Coordenador de Curso</a></li>
 				<li><a href="cad_coo_evento.php">Cadastro de Coordenador de Evento</a></li>
-                                                        <li><a href="todos_os_usuarios.php">Listar usuários do Sistema</a></li>
+                                                        <li><a href="todos_os_usuarios.php">Usuários do Sistema</a></li>
+                                                        <li><a href="evento_proximo.php">Eventos Próximo</a></li>
 				<li><a href="logout.php">Sair do Sistema</a></li>
 				</ul>
 			</nav>

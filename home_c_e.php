@@ -20,18 +20,18 @@ include('start.php');
 </head>
 <body>
 	<div id="superior">
-		<center><img src="img/ifal.png"; ></center>
+		<center><img src="img/ifal.png"></center>
 	</div>
 	<div id="wrap">
 
 		<header>
-			<?php
-            echo '<h3>Seja bem vindo Senhor(a) Coordenador de Eventos ' . htmlspecialchars($_SESSION["usuario"]) . '!</h>';
+	<?php
+            echo '<h3>Seja bem vindo Senhor(a) Coordenador de Eventos ' . htmlspecialchars($_SESSION["usuario"]) . '!</h3>';
            	?>
 			<nav>
 				<ul>
 					<li><a href="criareventos.php">Criar evento</a></li>
-					<li><a href="#">Informar Participação/Ausência</a></li>
+					<li><a href="info_part_ause.php">Informar Participação/Ausência</a></li>
 					<li><a href="#">Gerar relatório</a></li>
 					<li><a href="#">Gerar declaração</a></li>
 					<li><a href="logout.php">Sair do Sistema</a></li>

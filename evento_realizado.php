@@ -19,7 +19,7 @@ include ('start.php');
 	<META name="IFAL" content="Site finculado ao Instituto Federal de Alagoas"/>
 	<META name="keywords" content="Eventos em Maceió"/>
 	<META name="author" content="estudantes SI 3° Período"/>
-	<meta http-equiv="refresh" content=6;url="home_c_e.php">
+	<meta http-equiv="refresh" content=1;url="home_c_e.php">
 
 </head>
 <body>
@@ -41,7 +41,6 @@ $localevento = $_POST['localevento'];
 $usuario =  $_SESSION['usuario'];
 $diaevento = $_POST['data'];
 $descricao = $_POST['descricao'];
-
 
 $sql = "SELECT idusuario FROM cadastro1 WHERE usuario = '$usuario' ";
 $result = mysqli_query($conexao, $sql);
