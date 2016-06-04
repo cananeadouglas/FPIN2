@@ -34,8 +34,8 @@ include('start.php');
 					<li><a href="aluno/orientacao.php">Orientação ao Aluno</a></li>
 					<li><a href="aluno/inscreve_evento.php">Inscrever-se em Evento</a></li>
 					<li><a href="aluno/registro_ativ.php">Registrar Atividades Feitas</a></li>
-                    <li><a href="#">Relatório Atividades Complementares</a></li>
-                    <li><a href="#">Declaração de participação</a></li>
+                    <li><a href="gerarelatorio2.php">Relatório Atividades Complementares</a></li>
+                    <li><a href="aluno/registrodedeclaracao.php">Declaração de participação</a></li>
                     <li><a href="logout.php">Sair do Sistema</a></li>
 				</ul>
 			</nav>

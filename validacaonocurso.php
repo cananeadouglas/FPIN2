@@ -31,8 +31,8 @@ $sql = "SELECT idusuario
 $result = mysqli_query($conexao, $sql);
 $fetch = mysqli_fetch_assoc($result);
 $fetch = array_shift($fetch);
-$idusuario = $fetch; // recupero o id do usuario
 
+$idusuario = $fetch; // recupero o id do usuario
 
 $sql2 = "SELECT idevento
                 FROM eventos
@@ -41,24 +41,12 @@ $sql2 = "SELECT idevento
 $result2 = mysqli_query($conexao, $sql2);
 $fetch2 = mysqli_fetch_assoc($result2);
 $fetch2 = array_shift($fetch2);
+
 $idevento = $fetch2; // recupero o id do Evento
-
-
-$sql3 = "SELECT i.inscricao
-FROM inscreve_evento i, cadastro1 c, eventos e
-WHERE c.idusuario = '$idusuario' and e.idevento = '$idevento' and i.participou = '' ";
-
-$result3 = mysqli_query($conexao, $sql3);
-$fetch3 = mysqli_fetch_assoc($result3);
-$fetch3 = array_shift($fetch3);
-
-$inscricao = $fetch3; // recupero o id da inscricao
-
-echo " $idevento + $idusuario + inscricao ";
 
 mysqli_query($conexao, "UPDATE inscreve_evento
         SET participou = 'True'
-        WHERE idevento='$idevento' and idusuario='$idusuario' and inscricao='$inscricao' and participou = '' ")
+        WHERE idevento = '$idevento' and idusuario = '$idusuario' and participou = '' ")
         or die(mysqli_error());
         echo "<script>alert('Validação Efetuada com Sucesso, click em OK');</script>";
 

@@ -33,8 +33,7 @@ include ('start.php');
 					<li><a href="registrar_atividade.php">Registrar Atividades</a></li>
 					<li><a href="visualizar_atividade.php">Visualizar Atividades</a></li>
 					<li><a href="info_part_ause2.php">Validar Atividades</a></li>
-					<li><a href="#">Gerar Relatório</a></li>
-					<li><a href="#">Gerar Declaração</a></li>
+					<li><a href="gerarelatorio.php">Gerar Relatório</a></li>
 					<li><a href="logout.php">Sair do Sistema</a></li>
 				</ul>
 			</nav>

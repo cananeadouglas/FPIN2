@@ -12,7 +12,7 @@ include ('start.php');
 <html>
 <head>
     <title>validou</title>
-    <meta http-equiv="refresh" content=2;url="home_c_c.php">
+    <meta http-equiv="refresh" content=1;url="home_c_c.php">
 
 </head>
 <body>
@@ -22,7 +22,7 @@ include ('start.php');
 $usuario = $_POST['aqui01'];
 $atividade = $_POST['aqui02'];
 
-echo "$usuario    e     $atividade";
+//echo "$usuario    e     $atividade";
 
 $sql = "SELECT idusuario
             FROM cadastro1

@@ -32,7 +32,7 @@ include('start.php');
 				<ul>
 					<li><a href="criareventos.php">Criar evento</a></li>
 					<li><a href="info_part_ause.php">Informar Participação/Ausência</a></li>
-					<li><a href="#">Gerar relatório</a></li>
+					<li><a href="info_part_ause3.php">Gerar relatório</a></li>
 					<li><a href="#">Gerar declaração</a></li>
 					<li><a href="logout.php">Sair do Sistema</a></li>
 				</ul>

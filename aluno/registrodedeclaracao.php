@@ -1,3 +1,5 @@
+<META http-equiv="Content-Type" content="text/html, charset=UTF-8"/ >
+
 <?php
 include ('../conecta_banco.php');
 ?>
@@ -9,7 +11,7 @@ include ('../start.php');
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Inscrição em Evento</title>
+	<title>Registro de Atividades</title>
 	<META http-equiv="Content-Type" content="text/html, charset=UTF-8"/ >
 	<link rel="stylesheet" type="text/css" href="../css/css.css"/>
 	<link rel="shortcut icon" href="../img/favicon.ico">
@@ -20,56 +22,80 @@ include ('../start.php');
 </head>
 <body>
 	<div id="superior">
-		<center><img src="../img/ifal.png"></center>
+		<center><img src="../img/ifal.png"; ></center>
 	</div>
 	<div id="wrap">
 
 		<header>
-	<?php
-            echo '<h3>Seja bem vindo ' . htmlspecialchars($_SESSION["usuario"]) . '!</h3>';
-           	?>
-           	<a href="../home_aluno.php">Painel Inicial</a><br/>
+			<h3>Seja bem Vindo</h3>
 			<nav>
-
+			<a href="../home_aluno.php">Painel Inicial</a>
 			</nav>
 		</header>
+
 		<div id="content">
 			<article>
 
 <!-- ----------------------------------------------------------------------------------------  -->
 
-<form action="inscreve_evento_realizado.php" method="post" ecntype="">
-
-<p>Deseja se Inscrever em qual curso?</p>
 
 <?php
-$today = date("y-m-d");   // dia atual          '2016-06-01' and '2016-07-31'
 
-$sql = "SELECT e.nomeevento FROM eventos e, cadastro1 c WHERE e.idusuario = c.idusuario and diaevento >= '$today' ";
+$usuario = $_SESSION["usuario"];
+
+$sql7 = "SELECT idusuario
+            FROM cadastro1
+            WHERE usuario = '$usuario'";
+
+$result7 = mysqli_query($conexao, $sql7);
+$fetch7 = mysqli_fetch_assoc($result7);
+$fetch7 = array_shift($fetch7);
+
+$idusuario = $fetch7; // recupero o id do usuario
+
+echo "Relatório de participação Aceitas pelo Coordenador de Evento<br/><br/><br/>";
+
+$sql = "SELECT c.usuario, e.nomeevento, i.participou
+	FROM cadastro1 c join inscreve_evento i using(idusuario) join eventos e using(idevento)
+	WHERE i.participou = 'True' AND c.idusuario = '$idusuario' ";
 
 $resultado = mysqli_query($conexao, $sql);
 
-echo "<p><label>Selecione de eventos:</label><br>";
-echo "<select type='selected' required='required' value='selecione'  name='nomeevento'>";
+$sql2 = mysqli_query($conexao, "SELECT c.usuario, e.nomeevento, i.participou
+	FROM cadastro1 c join inscreve_evento i using(idusuario) join eventos e using(idevento)
+	WHERE i.participou = 'True' AND c.idusuario = '$idusuario' ") or die(mysqli_error());
+$row = mysqli_num_rows($sql2);
 
-while($linha = mysqli_fetch_array($resultado)){
+if($row > 0){
 
-echo "<option>{$linha['nomeevento']}</option>";
+	echo "<table><tr>";
+	echo "<th>Nome de usuario</th>";
+	echo "<th>Nome do Evento</th>";
+	echo "<th>Participação</th>";
+	//echo "<th>Falta Confirmar </th>";
+	echo "</tr><tr>";
 
+	while($linha = mysqli_fetch_array($resultado)){
+
+	echo "<td>{$linha['usuario']}</td>";
+	echo "<td>{$linha['nomeevento']}</td>";
+	echo "<td>{$linha['participou']}</td></tr>";
+
+	}
+
+	echo "</table><br/>";
+
+}else{
+	echo "Relatório de Participação";
 }
 
-echo " </select></p>";
 
 ?>
 
-      <input class="button button1" type="submit" value="Fazer Inscrição">
-
-
- </form>
 
 <!-- ----------------------------------------------------------------------------------------  php em baixo  -->
 
-			</article>
+		</article>
 		</div>
 		<div id="sidebar">
 			<aside>
