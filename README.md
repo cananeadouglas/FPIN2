@@ -1,4 +1,8 @@
 # FPIN2
 projeto acadêmico
 
-2ª part
+3ª part
+
+Rochester
+e
+Douglas
